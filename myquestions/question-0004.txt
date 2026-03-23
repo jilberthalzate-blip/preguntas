@@ -1,0 +1,11 @@
+El Problema:
+Antes de optimizar hiperparámetros, quieres diagnosticar si tu modelo sufre de alto sesgo (underfitting) o alta varianza (overfitting) usando una curva de aprendizaje. El diagnóstico debe ser automático según la brecha entre scores de entrenamiento y validación.
+Tu Misión:
+Escribe una función llamada diagnosticar_sesgo_varianza(X, y, modelo, cv, n_puntos) que:
+18.	Use learning_curve de sklearn con cv folds y n_puntos tamaños de entrenamiento entre el 10% y el 100%.
+19.	Calcule la media y desviación estándar del score en train y validación para cada tamaño.
+20.	Determine el diagnóstico automático comparando los scores en el tamaño máximo:
+•	'alto sesgo' si train score < 0.75
+•	'alta varianza' si train score >= 0.75 y (train - val) > 0.15
+•	'buen ajuste' en cualquier otro caso
+21.	Retorne un diccionario con 'train_scores', 'val_scores', 'train_sizes' (como listas) y 'diagnostico' (string).

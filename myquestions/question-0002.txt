@@ -1,0 +1,9 @@
+El Problema:
+En un sistema de gestión médica, los registros de pacientes pueden estar duplicados parcialmente: mismo paciente con distintas fechas de ingreso pero con datos clínicos que varían. Necesitas detectar estos duplicados y conservar solo el registro más reciente con los valores más completos.
+Tu Misión:
+Escribe una función llamada deduplicar_pacientes(df, col_id, col_fecha, cols_clinicas) que:
+6.	Detecte pacientes (col_id) con más de un registro.
+7.	Para cada grupo duplicado, calcule un score de completitud: número de valores no nulos en cols_clinicas.
+8.	Ordene cada grupo por col_fecha (descendente) y luego por score de completitud (descendente).
+9.	Conserve solo el primer registro de cada grupo tras ese ordenamiento.
+10.	Retorne el DataFrame deduplicado con una columna adicional 'score_completitud'.

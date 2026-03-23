@@ -1,0 +1,9 @@
+El Problema:
+Trabajas en una empresa de retail. Recibes un DataFrame con transacciones de clientes que incluye columnas de segmento, monto y fecha. Necesitas calcular estadísticas agregadas por segmento, pero solo para los clientes cuyo monto total supere un umbral dinámico (la mediana global de montos totales por cliente).
+Tu Misión:
+Escribe una función llamada resumir_por_segmento(df, col_segmento, col_cliente, col_monto) que:
+1.	Calcule el monto total por cliente.
+2.	Filtre solo los clientes cuyo total supere la mediana de todos los totales.
+3.	Para los clientes filtrados, agrupe por col_segmento y calcule: total_transacciones, monto_promedio, monto_maximo, clientes_unicos.
+4.	Agregue una columna 'pct_del_total' con el porcentaje que representa cada segmento sobre la suma global.
+5.	Retorne el DataFrame resultante ordenado de mayor a menor monto_promedio.

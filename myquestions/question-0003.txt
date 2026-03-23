@@ -1,0 +1,11 @@
+El Problema:
+Recibes un DataFrame con columnas numéricas y categóricas mezcladas, valores faltantes y una variable objetivo binaria. Necesitas construir un pipeline robusto que preprocese automáticamente ambos tipos de columnas y entrene un clasificador, retornando métricas detalladas.
+Tu Misión:
+Escribe una función llamada pipeline_mixto_clasificacion(df, target_col, test_size) que:
+11.	Detecte automáticamente columnas numéricas y categóricas.
+12.	Para numéricas: impute con la mediana y escale con StandardScaler.
+13.	Para categóricas: impute con la moda y aplique OneHotEncoder(handle_unknown='ignore').
+14.	Use ColumnTransformer para combinar ambos preprocessings.
+15.	Construya un Pipeline con el preprocesador y un GradientBoostingClassifier.
+16.	Divida con train_test_split usando test_size y stratify=y.
+17.	Retorne un diccionario con 'accuracy', 'f1_macro', 'roc_auc' (todos sobre el conjunto de prueba, redondeados a 4 decimales).
