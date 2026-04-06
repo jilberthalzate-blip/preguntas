@@ -1,4 +1,6 @@
 ###Firma esperada:
+import pandas as pd
+
 def resumir_por_segmento(
     df: pd.DataFrame,
     col_segmento: str,

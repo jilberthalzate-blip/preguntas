@@ -1,4 +1,6 @@
 ###Firma esperada:
+import pandas as pd
+
 def diagnosticar_sesgo_varianza(
     X: np.ndarray,
     y: np.ndarray,

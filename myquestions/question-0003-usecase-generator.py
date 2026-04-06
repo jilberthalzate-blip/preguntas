@@ -1,4 +1,6 @@
 ###Firma esperada:
+import pandas as pd
+
 def pipeline_mixto_clasificacion(
     df: pd.DataFrame,
     target_col: str,

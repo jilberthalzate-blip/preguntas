@@ -1,4 +1,6 @@
 ###Firma esperada:
+import pandas as pd
+
 def deduplicar_pacientes(
     df: pd.DataFrame,
     col_id: str,
