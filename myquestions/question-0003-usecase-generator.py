@@ -24,4 +24,4 @@ def generar_caso_de_uso_pipeline_mixto_clasificacion():
         "target":  np.random.choice([0,1],n,p=[0.7,0.3])
     })
     ts = round(np.random.choice([0.2,0.25,0.3]),2)
-    return df, {"target_col": "target", "test_size": ts}
+    return {"target_col": "target", "test_size": ts}, df

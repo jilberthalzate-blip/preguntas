@@ -29,4 +29,4 @@ def generar_caso_de_uso_diagnosticar_sesgo_varianza():
         modelo = RandomForestClassifier(n_estimators=ne, random_state=42)
     cv = np.random.choice([3, 5])
     n_puntos = np.random.randint(5, 10)
-    return X, y, {"modelo": modelo, "cv": cv, "n_puntos": n_puntos}
+    return {"X": X, "y": y}, {"modelo": modelo, "cv": cv, "n_puntos": n_puntos}

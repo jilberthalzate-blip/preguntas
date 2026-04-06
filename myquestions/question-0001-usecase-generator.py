@@ -24,6 +24,6 @@ def generar_caso_de_uso_resumir_por_segmento():
         "cliente_id": clientes,
         "monto": montos
     })
-    return df, {"col_segmento": "segmento", "col_cliente": "cliente_id", "col_monto": "monto"}
+    return {"col_segmento": "segmento", "col_cliente": "cliente_id", "col_monto": "monto"}, df
 
 
