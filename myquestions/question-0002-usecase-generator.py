@@ -22,7 +22,7 @@ def generar_caso_de_uso_deduplicar_pacientes():
             np.random.uniform(60,180,n).round(1)) for c in cols}
     df = pd.DataFrame({
         "paciente_id": ids, "fecha_ingreso": fechas, **data})
-    return df, "paciente_id", "fecha_ingreso", cols
+    return df, {"col_id": "paciente_id", "col_fecha": "fecha_ingreso", "cols_clinicas": cols}
 
 
 
