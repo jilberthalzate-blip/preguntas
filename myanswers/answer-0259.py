@@ -16,7 +16,7 @@ def extraer_dinamica_temporal(df, col_sensor, ventana=12):
 
     Retorna
     -------
-    pd.DataFrame con columnas [skew_movil, rango_movil, tasa_cambio],
+    pd.DataFrame con columnas [asimetria_movil, rango_movil, tasa_cambio],
     escaladas con RobustScaler, manteniendo el índice original.
     """
     serie = df[col_sensor].copy()
@@ -24,25 +24,17 @@ def extraer_dinamica_temporal(df, col_sensor, ventana=12):
     # 1. Features sobre ventana deslizante
     rolling = serie.rolling(window=ventana)
 
-    skew_movil   = rolling.skew()
-    rango_movil  = rolling.max() - rolling.min()
-    tasa_cambio  = serie.diff()
+    resultado = pd.DataFrame(index=df.index)
+    resultado["asimetria_movil"] = rolling.skew()
+    resultado["rango_movil"]     = rolling.max() - rolling.min()
+    resultado["tasa_cambio"]     = serie.diff()
 
-    # 2. Ensamblar y limpiar NaNs
-    features = pd.DataFrame({
-        "skew_movil"  : skew_movil,
-        "rango_movil" : rango_movil,
-        "tasa_cambio" : tasa_cambio,
-    }, index=df.index).dropna()
+    # 2. Eliminar NaNs
+    resultado = resultado.dropna()
 
-    # 3. Escalado robusto (preserva índice)
+    # 3. Escalado robusto
     scaler = RobustScaler()
-    valores_escalados = scaler.fit_transform(features)
-
-    resultado = pd.DataFrame(
-        valores_escalados,
-        columns=["skew_movil", "rango_movil", "tasa_cambio"],
-        index=features.index
-    )
+    columnas = ["asimetria_movil", "rango_movil", "tasa_cambio"]
+    resultado[columnas] = scaler.fit_transform(resultado[columnas])
 
     return resultado
